@@ -1,0 +1,14 @@
+.list-user-container{
+    .title{
+        color: red;
+    } 
+
+    .list-user-content{
+        .child{
+            width: auto;
+            margin: 0 auto;
+            height: 40px;
+            border: 1px solid grey;
+        }
+    }
+}
