@@ -22,12 +22,20 @@ class MyComponent extends React.Component {
     // });
   };
 
+  delete = (job) => {
+    let current = this.state.arrJobs;
+    current = current.filter((item) => item.id !== job.id);
+    this.setState({
+      arrJobs: current,
+    });
+  };
+
   render() {
     console.log(">>>call rerender: ", this.state);
     return (
       <>
         <AddComponent addNewJob={this.addnewJob} />
-        <ChildComponent jobs={this.state.arrJobs} />
+        <ChildComponent jobs={this.state.arrJobs} delete={this.delete} />
       </>
     );
   }

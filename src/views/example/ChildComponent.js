@@ -11,6 +11,10 @@ class ChildComponent extends React.Component {
     });
   };
 
+  handleDeleteTodo = (job) => {
+    this.props.delete(job);
+  };
+
   render() {
     console.log(">>>call rerender: ", this.props);
     let { jobs } = this.props;
@@ -27,9 +31,19 @@ class ChildComponent extends React.Component {
             <div className="job-list">
               {jobs.map((item, index) => {
                 return (
-                  <div key={item.id}>
-                    {item.title} - {item.salary}
-                  </div>
+                  <>
+                    <div key={item.id}>
+                      {item.title} - {item.salary}{" "}
+                      <span>
+                        <button
+                          className="delete"
+                          onClick={() => this.handleDeleteTodo(item)}
+                        >
+                          Delete
+                        </button>
+                      </span>
+                    </div>
+                  </>
                 );
               })}
             </div>
